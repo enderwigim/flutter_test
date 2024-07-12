@@ -4,17 +4,9 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatefulWidget {
-  
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
-  @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-class _MainAppState extends State<MainApp> {
-  int counter = 0;
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,16 +14,22 @@ class _MainAppState extends State<MainApp> {
         appBar: AppBar(
           title: const Text('App'),
           centerTitle: true,
+          backgroundColor: Colors.lightBlue[900],
         ),
-        body: Center(
-            child: Text('Button was clicked $counter times'),
+        body:  Center(
+            child: Text(
+              'Hello',
+              style: TextStyle(
+                // fontFamily: 'Montserrat-Italic',
+                fontSize: 20,
+                fontWeight: FontWeight.w800,
+                color: Colors.lightBlue[900]
+              ),
+            ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              counter++;
-            });
-          },
+          onPressed: null,
+          backgroundColor: Colors.lightBlue[900],
           child: const Text('click'),
         ),
       )
