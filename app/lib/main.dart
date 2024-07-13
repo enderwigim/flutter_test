@@ -17,74 +17,91 @@ class MainApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.lightBlue[900],
         ),
-        body: Center(
-          child: Container(
-            // LayoutBuilder lets you addapt your layouts to the width of your screen.
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                // Let's set the width of our textFields upto 50% of the screen
-                double textFieldWidth = constraints.maxWidth*0.60;
-                double height = constraints.maxHeight*0.70;
-          
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Container(
-                      // Set container width
-                      width: textFieldWidth,
-                      height: height,
-                      padding: const EdgeInsetsDirectional.symmetric(horizontal: 30.0, vertical: 20.0),
-                      color: Colors.cyan,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        body: Container(
+              // LayoutBuilder lets you addapt your layouts to the width of your screen.
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  // Let's set the width of our textFields upto 50% of the screen
+                  double textFieldWidth = constraints.maxWidth*0.30;
+                  double textFieldHeigh = constraints.maxHeight;
+                  double imageWidth = constraints.maxWidth*0.70;
+            
+                  return Row(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                            const TextField(
-                              decoration: InputDecoration(
-                                          border: OutlineInputBorder(),
-                                          hintText: "User"
-                              ),
-                            ),
-
-                            const SizedBox(height: 20.0),
-
-                            const TextField(
-                              decoration: InputDecoration(
-                                          border: OutlineInputBorder(),
-                                          hintText: "Password",)
-                            ),
-                            
-                          const SizedBox(height: 20.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(horizontal: 100.0, vertical: 20.0), // Increase button size
-                                    textStyle: const TextStyle(fontSize: 20), // Increase font size
-                                ),
-                                onPressed: () {}, 
-                                child: const Text("Login")
-                              ),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(horizontal: 100.0, vertical: 20.0), // Increase button size
-                                    textStyle: const TextStyle(fontSize: 20), // Increase font size
-                                ),
-                                onPressed: () {}, 
-                                child: const Text("Register")
-                              ),
-                            ],
+                          Container(
+                            // Set container width
+                            width: textFieldWidth,
+                            height: textFieldHeigh,
+                            padding: const EdgeInsetsDirectional.symmetric(horizontal: 30.0, vertical: 20.0),
+                            color: Colors.grey[300],
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                  const Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      const TextField(
+                                        decoration: InputDecoration(
+                                                    border: OutlineInputBorder(),
+                                                    hintText: "User"
+                                        ),
+                                      ),
+                                      
+                                      const SizedBox(height: 20.0),
+                                      
+                                      const TextField(
+                                        decoration: InputDecoration(
+                                                    border: OutlineInputBorder(),
+                                                    hintText: "Password",)
+                                      ),
+                                    ],
+                                  ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          padding: EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
+                                          textStyle: const TextStyle(fontSize: 20), // Increase font size
+                                      ),
+                                      onPressed: () {}, 
+                                      child: const Text("Login")
+                                    ),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          padding: EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
+                                          textStyle: const TextStyle(fontSize: 20), // Increase font size
+                                      ),
+                                      onPressed: () {}, 
+                                      child: const Text("Register")
+                                    ),
+                                  ],
+                                )
+                              ],),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: imageWidth,
+                            child: Image(
+                              image: NetworkImage("https://cdn.pixabay.com/photo/2018/03/26/14/07/space-3262811_1280.jpg")),
                           )
                         ],),
-                    )
-                  ],
-                );
-              }
-            ),
+                    ],
+                  );
+                }
+              ),
           ),
-        ),
+        
         floatingActionButton: FloatingActionButton(
           onPressed: null,
           backgroundColor: Colors.lightBlue[900],
