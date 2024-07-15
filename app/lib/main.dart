@@ -54,7 +54,7 @@ class _MainAppState extends State<MainApp> {
                             width: textFieldWidth,
                             height: textFieldHeigh,
                             padding: const EdgeInsetsDirectional.symmetric(horizontal: 30.0, vertical: 20.0),
-                            color: Colors.grey[200],
+                            color: const Color.fromARGB(239, 248, 248, 248),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -68,7 +68,8 @@ class _MainAppState extends State<MainApp> {
                                             padding: EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
                                             textStyle: const TextStyle(fontSize: 20), // Increase font size
                                         ),
-                                        onPressed: tooglePage, 
+                                        onPressed: () {
+                                          (!login)? tooglePage() : null; }, 
                                         child: const Text("Login")
                                       ),
                                       ElevatedButton(
@@ -76,7 +77,8 @@ class _MainAppState extends State<MainApp> {
                                             padding: EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
                                             textStyle: const TextStyle(fontSize: 20), // Increase font size
                                         ),
-                                        onPressed: tooglePage, 
+                                        onPressed: () {
+                                          (login)? tooglePage() : null; }, 
                                         child: const Text("Register")
                                       ),
                                     ],
