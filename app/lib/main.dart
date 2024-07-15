@@ -1,18 +1,26 @@
+import 'package:app/to_do_list.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'register_page.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MaterialApp(
+    routes: {
+      // This will set our basic routes for the proyect.
+      // Later we will have to work with dinamic routes.
+      '/' : (context) => const Home(),
+      '/todolist' : (context) => ToDoList(),
+    },
+  ));
 } 
-class MainApp extends StatefulWidget {
-  const MainApp({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<MainApp> createState() => _MainAppState();
+  State<Home> createState() => _HomeState();
 }
 
-class _MainAppState extends State<MainApp> {
+class _HomeState extends State<Home> {
   bool login = true;
 
   void tooglePage() {
@@ -20,12 +28,9 @@ class _MainAppState extends State<MainApp> {
       login = !login;
     });
   }
-
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text(
                         "IntegraQS ToDoList",
@@ -66,7 +71,7 @@ class _MainAppState extends State<MainApp> {
                                     children: [
                                       ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                            padding: EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
+                                            padding: const EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
                                             textStyle: const TextStyle(fontSize: 20), // Increase font size
                                         ),
                                         onPressed: () {
@@ -75,7 +80,7 @@ class _MainAppState extends State<MainApp> {
                                       ),
                                       ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                            padding: EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
+                                            padding: const EdgeInsets.symmetric(horizontal: 35.00, vertical: 20.0), // Increase button size
                                             textStyle: const TextStyle(fontSize: 20), // Increase font size
                                         ),
                                         onPressed: () {
@@ -104,14 +109,15 @@ class _MainAppState extends State<MainApp> {
                 }
               ),
           ),
-        /*
+        
         floatingActionButton: FloatingActionButton(
-          onPressed: null,
+          onPressed: () {
+            Navigator.pushNamed(context, '/todolist');
+            },
           backgroundColor: Colors.lightBlue[900],
-          child: const Text('click'),
-        ),*/
-      )
-    );
+          child: const Text('ToDoList'),
+        ),
+      );
   }
 }
 
