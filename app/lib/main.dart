@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+import 'login_page.dart';
+import 'register_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -25,12 +24,14 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-  
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('App'),
+          title: const Text(
+                        "IntegraQS ToDoList",
+                        style: TextStyle(
+                          color: Colors.white
+                        )),
           centerTitle: true,
           backgroundColor: Colors.lightBlue[900],
         ),
@@ -103,104 +104,17 @@ class _MainAppState extends State<MainApp> {
                 }
               ),
           ),
-        
+        /*
         floatingActionButton: FloatingActionButton(
           onPressed: null,
           backgroundColor: Colors.lightBlue[900],
           child: const Text('click'),
-        ),
+        ),*/
       )
     );
   }
 }
 
 
-class LoginPage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          RichText(
-            text: const TextSpan(
-              text: 'Integra',
-              style: TextStyle(
-                fontSize: 30.00
-                ),
-              children: [
-                TextSpan(
-                  text: 'QS',
-                  style: TextStyle(
-                    fontSize: 30.00
-                  ),
-                )
-              ]
-            )),
-          const SizedBox(height: 100.0),
-          const TextField(
-            decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "User"
-            ),
-          ),
-          
-          const SizedBox(height: 20.0),
-          
-          const TextField(
-            decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Password",)
-          ),
-        ],
-      );
-  }
-}
 
-class RegisterPage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          RichText(
-            text: const TextSpan(
-              text: 'Integra',
-              style: TextStyle(
-                fontSize: 30.00
-                ),
-              children: [
-                TextSpan(
-                  text: 'QS',
-                  style: TextStyle(
-                    fontSize: 30.00
-                  ),
-                )
-              ]
-            )),
-          const SizedBox(height: 100.0),
-          const TextField(
-            decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "User"
-            ),
-          ),
-          
-          const SizedBox(height: 20.0),
-          
-          const TextField(
-            decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Password",)
-          ),
-          const SizedBox(height: 20.0),
-          
-          const TextField(
-            decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Confirm Password",)
-          ),
-        ],
-      );
-  }
-}
 
